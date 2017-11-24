@@ -19,7 +19,7 @@ public class dbCheckoutHelper extends Model {
     @Column(name = "student_id")
     public int studentId;
 
-    @Column(name = "book_id")
+    @Column(name = "student_id")
     public int bookId;
 
     @Column(name = "DueDate")
@@ -40,7 +40,7 @@ public class dbCheckoutHelper extends Model {
         String _stdname = dbStudentHelper.getStudentName(studentId);
         String _bookname = dbBookHelper.getBookName(bookId);
         //return  ret;
-        return "ID: " + getId() + ": STD Name: " + _stdname + ", Book name: " + _bookname + ",Due Date: " + dueDate;
+        return getId() + ": Name: " + _stdname + ", Book: " + _bookname + ",Due: " + dueDate;
     };
 
     public static List<dbCheckoutHelper> getAllCheckout(){
