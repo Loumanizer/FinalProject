@@ -68,4 +68,14 @@
         android:layout_below="@+id/textstudentbookcheckout"
         android:text="DueDate: " />
 
+    <Button
+        android:id="@+id/btnstudentsendCheckIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btnstudentsendSms"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btnstudentsendSms"
+        android:layout_toStartOf="@+id/btnstudentsendSms"
+        android:text="Check IN" />
+
 </RelativeLayout>
