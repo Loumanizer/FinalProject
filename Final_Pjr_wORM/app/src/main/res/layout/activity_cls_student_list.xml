@@ -9,10 +9,14 @@
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
-        android:layout_height="14dp"
+        android:layout_height="18dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="9dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="14dp"
         android:text="Student name"
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
+        app:layout_constraintEnd_toStartOf="@+id/editStudentName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -21,6 +25,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="28dp"
         android:text="Phone Numb"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,10 +35,13 @@
         android:id="@+id/editStudentName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="57dp"
         android:layout_marginStart="16dp"
         android:ems="10"
         android:hint="Student name"
         android:inputType="textPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/editStudentPhoneNumber"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,6 +50,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:ems="10"
         android:hint="Phone Number"
         android:inputType="phone"
@@ -53,6 +62,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
         android:layout_marginTop="39dp"
         android:text="Add"
         app:layout_constraintStart_toStartOf="parent"
@@ -63,18 +73,20 @@
         android:layout_width="108dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="34dp"
+        android:layout_marginLeft="34dp"
         android:layout_marginTop="18dp"
         android:text="Update"
         app:layout_constraintStart_toEndOf="@+id/btnStdLstAddStudent"
         app:layout_constraintTop_toBottomOf="@+id/editStudentPhoneNumber" />
 
     <Button
-        android:id="@+id/btnStdLstDeleteStudent"
+        android:id="@+id/btnStdLstDetailStudent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="33dp"
+        android:layout_marginLeft="33dp"
         android:layout_marginTop="18dp"
-        android:text="Delete"
+        android:text="Detail"
         app:layout_constraintStart_toEndOf="@+id/btnStdLstUpdateStudent"
         app:layout_constraintTop_toBottomOf="@+id/editStudentPhoneNumber" />
 
@@ -83,6 +95,7 @@
         android:layout_width="368dp"
         android:layout_height="337dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnStdLstAddStudent" />

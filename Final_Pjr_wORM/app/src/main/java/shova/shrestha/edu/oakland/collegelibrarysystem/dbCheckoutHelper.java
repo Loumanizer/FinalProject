@@ -40,12 +40,19 @@ public class dbCheckoutHelper extends Model {
         String _stdname = dbStudentHelper.getStudentName(studentId);
         String _bookname = dbBookHelper.getBookName(bookId);
         //return  ret;
-        return "ID: " + getId() + ": STD Name: " + _stdname + ", Book name: " + _bookname + ",Due Date: " + dueDate;
+        return getId() + ": Name: " + _stdname + ", Book: " + _bookname + ",Due: " + dueDate;
     };
 
     public static List<dbCheckoutHelper> getAllCheckout(){
         Select query = new Select();
         return query.from(dbCheckoutHelper.class).orderBy("DueDate").execute();
+    }
+
+    public static List<dbCheckoutHelper> getStudentAllCheckout(int _studentId){
+        Select query = new Select();
+        return query.from(dbCheckoutHelper.class)
+                .where("student_id = ?", _studentId)
+                .orderBy("DueDate").execute();
     }
 
     public static int getStudentId(int _id)

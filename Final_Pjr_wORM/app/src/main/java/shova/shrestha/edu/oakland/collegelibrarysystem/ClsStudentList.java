@@ -11,16 +11,17 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.activeandroid.query.Update;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ClsStudentList extends AppCompatActivity {
-
     EditText editTextStdName = null;
     EditText editTextStdPhoneNumb = null;
     Button btnStudentListAddStudent= null;
     Button btnStudentListUpdateStudent= null;
-    Button btnStudentListDeleteStudent= null;
+    Button btnStudentListDetailStudent= null;
     ListView listviewStudentList = null;
     ArrayAdapter<dbStudentHelper> studentlistadapter;
     List<dbStudentHelper> students = new ArrayList<>();
@@ -34,11 +35,12 @@ public class ClsStudentList extends AppCompatActivity {
         editTextStdPhoneNumb = (EditText)findViewById(R.id.editStudentPhoneNumber);
         btnStudentListAddStudent = (Button)findViewById(R.id.btnStdLstAddStudent);
         btnStudentListUpdateStudent = (Button)findViewById(R.id.btnStdLstUpdateStudent);
-        btnStudentListDeleteStudent = (Button)findViewById(R.id.btnStdLstDeleteStudent);
+        btnStudentListDetailStudent = (Button)findViewById(R.id.btnStdLstDetailStudent);
         listviewStudentList = (ListView)findViewById(R.id.listViewStudentList);
 
+
         // disable delete btn and updated btn in begining of on create
-        btnStudentListDeleteStudent.setEnabled(false);
+        btnStudentListDetailStudent.setEnabled(false);
         btnStudentListUpdateStudent.setEnabled(false);
 
 
@@ -46,15 +48,16 @@ public class ClsStudentList extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String item = ((TextView) view).getText().toString();
-                String[] split = item.split(":");
+                String[] split = item.split(": ");
                 int _studentId = Integer.parseInt(split[0]);
-                //editTextStdName.setText(split[0]);
-                //editTextStdName.setText(split[1]);
+                split = split[1].split(", ");
+                split[0].trim();
+                split[1].trim();
+                editTextStdName.setText(split[0]);
+                editTextStdPhoneNumb.setText(split[1]);
                 editTextStdName.setTag(_studentId);
-
-                Intent intent = new Intent(ClsStudentList.this, StudentDetail.class);
-                intent.putExtra("STUDENT_ID",_studentId);
-                startActivity(intent);
+                btnStudentListDetailStudent.setEnabled(true);
+                btnStudentListUpdateStudent.setEnabled(true);
             }
         });
 
@@ -70,6 +73,34 @@ public class ClsStudentList extends AppCompatActivity {
                 clsStudentupdateList();
                 clsStudentclearForm();
 
+            }
+        });
+
+        btnStudentListUpdateStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String _name = editTextStdName.getText().toString();
+                String _phoneNumber = editTextStdPhoneNumb.getText().toString();
+                int _studentId = (int) editTextStdName.getTag();
+
+                // Update record
+                new Update(dbStudentHelper.class)
+                        .set("name = ?, phonenumber = ?", _name, _phoneNumber)
+                        .where("id = ?", _studentId)
+                        .execute();
+
+                clsStudentupdateList();
+                clsStudentclearForm();
+            }
+        });
+
+        btnStudentListDetailStudent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int _selectedStudentId =  (int) editTextStdName.getTag();
+                Intent intent = new Intent(ClsStudentList.this, StudentDetail.class);
+                intent.putExtra("STUDENT_ID",_selectedStudentId);
+                startActivity(intent);
             }
         });
         clsStudentupdateList();
@@ -88,7 +119,7 @@ public class ClsStudentList extends AppCompatActivity {
         editTextStdName.setTag(-1);
         editTextStdName.setText("");
         editTextStdPhoneNumb.setText("");
-        btnStudentListDeleteStudent.setEnabled(false);
+        btnStudentListDetailStudent.setEnabled(false);
         btnStudentListUpdateStudent.setEnabled(false);
     }
 

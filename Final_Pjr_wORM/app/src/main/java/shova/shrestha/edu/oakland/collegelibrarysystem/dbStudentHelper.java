@@ -49,7 +49,7 @@ public class dbStudentHelper extends Model {
     public static List<dbStudentHelper> getAllStudentName(){
         studentflag = 0;
         Select query = new Select();
-        return query.from(dbStudentHelper.class).orderBy("name").execute();
+        return query.from(dbStudentHelper.class).orderBy("id").execute();
     }
 
     public static String getStudentName(int _id)
