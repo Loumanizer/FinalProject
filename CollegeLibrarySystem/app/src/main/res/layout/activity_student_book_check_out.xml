@@ -43,7 +43,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
-        android:onClick="editItems"
+        android:onClick="btnStudentSendSms"
         android:text="Send SMS"
         android:textSize="12sp"
         android:textStyle="bold" />
