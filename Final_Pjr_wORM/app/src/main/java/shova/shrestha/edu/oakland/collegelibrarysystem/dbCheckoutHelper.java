@@ -48,6 +48,13 @@ public class dbCheckoutHelper extends Model {
         return query.from(dbCheckoutHelper.class).orderBy("DueDate").execute();
     }
 
+    public static List<dbCheckoutHelper> getStudentAllCheckout(int _studentId){
+        Select query = new Select();
+        return query.from(dbCheckoutHelper.class)
+                .where("student_id = ?", _studentId)
+                .orderBy("DueDate").execute();
+    }
+
     public static int getStudentId(int _id)
     {
         Select CheckoutQuery = new Select ();

@@ -26,7 +26,7 @@ public class CollegeLibrarySystem extends AppCompatActivity {
         });
 
         // Temp code to not press login
-        Intent i = new Intent(CollegeLibrarySystem.this, ClsCheckoutList.class);
+        Intent i = new Intent(CollegeLibrarySystem.this, ClsStudentList.class);
         startActivity(i);
         // Temp code to not press login
     }

@@ -47,16 +47,22 @@ public class StudentDetail extends AppCompatActivity {
 
     private void clsCheckoutupdateList(int _studentId)
     {
-        int tablesize = dbCheckoutHelper.getCheckoutbookCount();
-        for (int _index = 1; _index <= tablesize; _index++) {
-            int Bookid = dbCheckoutHelper.getChecoutBookById(_index, _studentId);
-            if(Bookid != -1) {
-                String _bookName = dbBookHelper.getBookName(Bookid);
-                String _duedate = dbCheckoutHelper.getDuedate(_index);
+
+        List<dbCheckoutHelper> _checkoutList = dbCheckoutHelper.getStudentAllCheckout(_studentId);
+        int _size = _checkoutList.size();
+        //int tablesize = dbCheckoutHelper.getCheckoutbookCount();
+        for (int _index = 0; _index < _size; _index++) {
+                //int Bookid = dbCheckoutHelper.getChecoutBookById(_index, _studentId);
+                //String _checkoutstdlistIndex_ = _checkoutList.get(_index).toString();
+                int _checkoutstdlistIndex = _checkoutList.get(_index).bookId;
+                String _bookName = dbBookHelper.getBookName(_checkoutstdlistIndex);
+                //String _duedate = dbCheckoutHelper.getDuedate(_checkoutstdlistIndex);
+                String _duedate = _checkoutList.get(_index).dueDate;
                 bookckoutdapter.addCheckoutBook(_bookName, _duedate);
-            }
         }
         listviewStudentCheckout.setAdapter(bookckoutdapter);
+
+
     }
 
     private void clsCheckoutclearForm()
