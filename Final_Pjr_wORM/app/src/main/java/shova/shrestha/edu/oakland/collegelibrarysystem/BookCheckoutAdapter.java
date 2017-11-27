@@ -18,18 +18,19 @@ import java.util.ArrayList;
 public class BookCheckoutAdapter extends BaseAdapter {
     ArrayList<BookCheckout> bookCheckOut = new ArrayList<>();
 
-    void addCheckoutBook(String cBookName, String cDuedate)
+    void addCheckoutBook(int cCheckoutId, String cBookName, String cDuedate)
     {
-        BookCheckout bookcheckout = new BookCheckout(cBookName, cDuedate);
+        BookCheckout bookcheckout = new BookCheckout(cCheckoutId, cBookName, cDuedate);
         bookCheckOut.add(bookcheckout);
     }
 
     public String getCheckoutBookName(int i){return  bookCheckOut.get(i).getBoookName();}
     public String getCheckoutDuedate(int i){return  bookCheckOut.get(i).getDuedate();}
+    public int getCheckoutId(int i){return  bookCheckOut.get(i).getCheckoutId();}
 
-    void updateBookCheckout(int i, String cBookName, String cDuedate)
+    void updateBookCheckout(int i, int cCheckoutId, String cBookName, String cDuedate)
     {
-        BookCheckout checkoutBook = new BookCheckout(cBookName, cDuedate);
+        BookCheckout checkoutBook = new BookCheckout(cCheckoutId, cBookName, cDuedate);
         bookCheckOut.set(i, checkoutBook);
     }
 

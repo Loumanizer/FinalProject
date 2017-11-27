@@ -20,9 +20,9 @@ public class dbBookHelper extends Model {
 
 
     public dbBookHelper(){super();}
-    public dbBookHelper(String _gameName) {
+    public dbBookHelper(String _bookName) {
         super();
-        this.bookName = _gameName;
+        this.bookName = _bookName;
     }
 
     @Override

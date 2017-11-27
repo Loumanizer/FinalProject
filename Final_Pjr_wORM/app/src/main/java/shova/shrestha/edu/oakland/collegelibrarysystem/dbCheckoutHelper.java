@@ -27,10 +27,10 @@ public class dbCheckoutHelper extends Model {
 
 
     public dbCheckoutHelper(){super();}
-    public dbCheckoutHelper(int _studentId, int _gameId, String _dueDate ) {
+    public dbCheckoutHelper(int _studentId, int _bookId, String _dueDate ) {
         super();
         this.studentId = _studentId;
-        this.bookId = _gameId;
+        this.bookId = _bookId;
         this.dueDate = _dueDate;
     }
 
@@ -67,10 +67,10 @@ public class dbCheckoutHelper extends Model {
     public static int getBookId(int _id)
     {
         Select CheckoutQuery = new Select ();
-        dbCheckoutHelper studentid = CheckoutQuery.from(dbCheckoutHelper.class)
+        dbCheckoutHelper bookId = CheckoutQuery.from(dbCheckoutHelper.class)
                 .where("id = ?", _id)
                 .executeSingle();
-        return studentid.bookId;
+        return bookId.bookId;
     }
 
     public static String getDuedate(int _id)

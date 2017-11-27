@@ -21,12 +21,22 @@ public class BookCheckout {
         this.duedate = duedate;
     }
 
+    public int getCheckoutId() {
+        return ckoutid;
+    }
+
+    public void setCheckoutId(int _checkoutId) {
+        this.ckoutid = _checkoutId;
+    }
+
     private String bookname = null;
     private String duedate = null;
+    private int ckoutid = 0;
 
-    public BookCheckout(String bookname, String duedate) {
+    public BookCheckout(int ckoutid, String bookname, String duedate) {
         this.bookname = bookname;
         this.duedate = duedate;
+        this.ckoutid = ckoutid;
     }
 }
 

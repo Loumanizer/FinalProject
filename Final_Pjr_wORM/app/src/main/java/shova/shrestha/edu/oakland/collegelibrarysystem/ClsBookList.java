@@ -16,6 +16,7 @@ public class ClsBookList extends AppCompatActivity {
     EditText editTextBookName = null;
     Button btnBookListAddBook= null;
     ListView listviewBookList = null;
+
     ArrayAdapter<dbBookHelper> booklistadapter;
     List<dbBookHelper> books = new ArrayList<>();
 

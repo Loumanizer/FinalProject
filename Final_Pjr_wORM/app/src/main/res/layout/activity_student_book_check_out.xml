@@ -43,7 +43,7 @@
         android:layout_alignParentRight="true"
         android:layout_marginEnd="13dp"
         android:layout_marginRight="13dp"
-        android:onClick="editItems"
+        android:onClick="btnStudentSendSms"
         android:text="Send SMS"
         android:textSize="12sp"
         android:textStyle="bold" />
@@ -69,13 +69,15 @@
         android:text="DueDate: " />
 
     <Button
-        android:id="@+id/btnstudentsendCheckIn"
+        android:id="@+id/btnstudentsendChkIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btnstudentsendSms"
         android:layout_alignBottom="@+id/btnstudentsendSms"
         android:layout_alignParentTop="true"
         android:layout_toLeftOf="@+id/btnstudentsendSms"
         android:layout_toStartOf="@+id/btnstudentsendSms"
-        android:text="Check IN" />
+        android:onClick="btnStudentCheckInBook"
+        android:text="Check In" />
 
 </RelativeLayout>

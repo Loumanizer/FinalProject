@@ -1,11 +1,13 @@
 package shova.shrestha.edu.oakland.collegelibrarysystem;
 
+import android.app.DatePickerDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -17,6 +19,7 @@ import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 
 public class ClsCheckoutList extends AppCompatActivity {
@@ -43,6 +46,30 @@ public class ClsCheckoutList extends AppCompatActivity {
         btnClsCheckoutupdateDuedate.setEnabled(false);
 
         editTextDuedate = (EditText) findViewById(R.id.editTextDuedate);
+        
+        editTextDuedate.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                //To show current date in the datepicker
+                Calendar mcurrentDate=Calendar.getInstance();
+                int mYear=mcurrentDate.get(Calendar.YEAR);
+                int mMonth=mcurrentDate.get(Calendar.MONTH);
+                int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
+
+                DatePickerDialog mDatePicker=new DatePickerDialog(ClsCheckoutList.this, new DatePickerDialog.OnDateSetListener() {
+                    public void onDateSet(DatePicker datepicker, int selectedyear, int selectedmonth, int selectedday) {
+                        // TODO Auto-generated method stub
+                    /*      Your code   to get date and time    */
+                            editTextDuedate.setText(selectedmonth + 1 + "/"+ selectedday+ "/"+ selectedyear);
+                    }
+                },mYear, mMonth, mDay);
+                mDatePicker.setTitle("Select Due Date");
+                mDatePicker.show();  }
+        });
+
+
         listViewCheckoutList = (ListView)findViewById(R.id.listViewCheckoutlist);
 
 
