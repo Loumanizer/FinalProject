@@ -40,7 +40,7 @@ public class dbCheckoutHelper extends Model {
         String _stdname = dbStudentHelper.getStudentName(studentId);
         String _bookname = dbBookHelper.getBookName(bookId);
         //return  ret;
-        return getId() + ": Name: " + _stdname + ", Book: " + _bookname + ",Due: " + dueDate;
+        return getId() + ": Name: " + _stdname + "\n" + "Book: " + _bookname + "\n"  + "Due: " + dueDate;
     };
 
     public static List<dbCheckoutHelper> getAllCheckout(){
