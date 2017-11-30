@@ -1,46 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="shova.shrestha.edu.oakland.collegelibrarysystem.ClsMenu">
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imageViewStd"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/students"/>
 
-    <Button
-        android:id="@+id/btnClsMenuStudent"
-        android:layout_width="233dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="24dp"
-        android:layout_marginEnd="124dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="60dp"
-        android:text="Student"
-        app:layout_constraintBottom_toTopOf="@+id/btnClsMenuBook"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+     <Button
+         android:id="@+id/btnClsMenuStudent"
+         android:layout_width="233dp"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="24dp"
+         android:layout_marginEnd="124dp"
+         android:layout_marginStart="0dp"
+         android:layout_marginTop="60dp"
+         android:text="Student"/>
+ </LinearLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imageBooks"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/books"/>
     <Button
         android:id="@+id/btnClsMenuBook"
         android:layout_width="236dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="391dp"
         android:layout_marginEnd="121dp"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="24dp"
         android:text="Book"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnClsMenuStudent" />
+        />
+</LinearLayout>
 
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+    <ImageView
+        android:id="@+id/imageViewCheckout"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/checkout"/>
     <Button
         android:id="@+id/btnClsMenuCheckout"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="0dp"
         android:layout_marginTop="20dp"
         android:text="Checkout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnClsMenuBook" />
-</android.support.constraint.ConstraintLayout>
+        />
+</LinearLayout>
+
+</LinearLayout>

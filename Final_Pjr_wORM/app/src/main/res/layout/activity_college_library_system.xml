@@ -1,63 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/booktree"
     tools:context="shova.shrestha.edu.oakland.collegelibrarysystem.CollegeLibrarySystem">
 
-    <Button
-        android:id="@+id/btnLogIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="155dp"
-        android:layout_marginStart="115dp"
-        android:layout_marginTop="124dp"
-        android:text="Log In"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.076"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPwd" />
-
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:background="@drawable/library"
+        />
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
     <TextView
         android:id="@+id/txtUserName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="28dp"
+        android:textColor="#FFFFFF"
+        android:layout_marginLeft="15dp"
         android:text="User Name"
+
+        android:background="@color/colorAccent"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/editTextUserId"
         app:layout_constraintHorizontal_bias="0.14"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/editTextUserId"
         android:layout_width="207dp"
         android:layout_height="36dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="64dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="15dp"
         android:layout_marginTop="28dp"
+        android:background="@color/colorAccent"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/txtUserName"
         app:layout_constraintTop_toTopOf="parent" />
+</LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/txtPwd"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginLeft="15dp"
         android:layout_marginTop="15dp"
         android:text="Password"
+        android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:background="@color/colorAccent"
         app:layout_constraintEnd_toStartOf="@+id/editTextPwd"
         app:layout_constraintHorizontal_bias="0.109"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,10 +80,32 @@
         android:id="@+id/editTextPwd"
         android:layout_width="201dp"
         android:layout_height="40dp"
-        android:layout_marginStart="73dp"
+        android:layout_marginLeft="0dp"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="12dp"
+        android:background="@color/colorAccent"
         android:ems="10"
         android:inputType="textPassword"
+        android:textColor="#FFFFFF"
         app:layout_constraintStart_toEndOf="@+id/txtPwd"
         app:layout_constraintTop_toBottomOf="@+id/editTextUserId" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
+
+    <Button
+        android:id="@+id/btnLogIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="155dp"
+        android:layout_marginStart="65dp"
+        android:layout_marginTop="35dp"
+        android:background="@color/colorAccent"
+        android:textColor="#FFFFFF"
+        android:text="Log In"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPwd" />
+
+</LinearLayout>
