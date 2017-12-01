@@ -61,7 +61,7 @@
         android:id="@+id/btnClsMenuCheckout"
         android:layout_width="220dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="0dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="20dp"
         android:text="Checkout"
         />
