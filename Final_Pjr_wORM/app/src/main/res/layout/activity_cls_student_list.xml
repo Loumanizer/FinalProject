@@ -38,6 +38,7 @@
             android:layout_marginStart="5dp"
             android:layout_marginTop="10dp"
             android:text="Student name"
+            android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/textView2"
             app:layout_constraintEnd_toStartOf="@+id/editStudentName"
             app:layout_constraintStart_toStartOf="parent"
@@ -48,8 +49,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="57dp"
             android:layout_marginRight="57dp"
-            android:layout_marginStart="5dp"
-            android:layout_marginLeft="5dp"
+            android:layout_marginStart="1dp"
+            android:layout_marginLeft="1dp"
             android:layout_marginTop="10dp"
             android:ems="10"
             android:hint="Student name"
@@ -69,7 +70,7 @@
             android:layout_marginLeft="5dp"
             android:layout_marginStart="5dp"
             android:text="Phone No"
-            />
+            android:textStyle="bold" />
         <EditText
             android:id="@+id/editStudentPhoneNumber"
             android:layout_width="wrap_content"

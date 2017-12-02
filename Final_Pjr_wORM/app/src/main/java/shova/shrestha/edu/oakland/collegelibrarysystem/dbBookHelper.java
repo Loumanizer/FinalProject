@@ -32,7 +32,7 @@ public class dbBookHelper extends Model {
 
     public static List<dbBookHelper> getAllBook(){
         Select query = new Select();
-        return query.from(dbBookHelper.class).orderBy("id").execute();
+        return query.from(dbBookHelper.class).orderBy("book_name").execute();
     }
 
     public static String getBookName(int _id)
