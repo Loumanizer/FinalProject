@@ -6,12 +6,6 @@ import com.activeandroid.annotation.Table;
 import com.activeandroid.query.Select;
 
 import java.util.List;
-
-/**
- * Created by molly on 11/20/17.
- */
-
-
 @Table(name = "studentTable")
 public class dbStudentHelper extends Model {
     public static int studentflag = 0;

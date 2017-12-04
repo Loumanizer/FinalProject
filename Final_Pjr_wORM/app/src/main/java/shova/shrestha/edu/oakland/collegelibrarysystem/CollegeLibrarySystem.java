@@ -8,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.Calendar;
+import java.util.Date;
+
 public class CollegeLibrarySystem extends AppCompatActivity {
     EditText editTextUserId = null;
     EditText editTextPwd = null;
@@ -52,8 +55,26 @@ public class CollegeLibrarySystem extends AppCompatActivity {
         });
 
         // Temp code to not press login
-        //Intent i = new Intent(CollegeLibrarySystem.this, ClsStudentList.class);
-        //startActivity(i);
+//        Intent i = new Intent(CollegeLibrarySystem.this, ClsBookList.class);
+//        startActivity(i);
         // Temp code to not press login
+    }
+
+    public static String getTwoWeekDuedate()  {
+        Calendar cal= Calendar.getInstance();
+        cal.add(cal.DAY_OF_MONTH, 14);
+
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        return month +  "/" + day +  "/" + year;
+    }
+
+    public static String getTodayIssueDate()  {
+        Calendar cal= Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH) + 1;
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+        return month +  "/" + day +  "/" + year;
     }
 }

@@ -16,7 +16,7 @@
             android:value="clz_lib_sys.db" />
         <meta-data
             android:name="AA_DB_VERSION"
-            android:value="13" />
+            android:value="1" />
 
         <provider
             android:name="com.activeandroid.content.ContentProvider"

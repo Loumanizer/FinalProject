@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.activeandroid.query.Update;
 
@@ -54,6 +55,7 @@ public class ClsCheckoutList extends AppCompatActivity {
                 // TODO Auto-generated method stub
                 //To show current date in the datepicker
                 Calendar mcurrentDate=Calendar.getInstance();
+                mcurrentDate.add(mcurrentDate.DAY_OF_MONTH, 14);
                 int mYear=mcurrentDate.get(Calendar.YEAR);
                 int mMonth=mcurrentDate.get(Calendar.MONTH);
                 int mDay=mcurrentDate.get(Calendar.DAY_OF_MONTH);
@@ -80,7 +82,7 @@ public class ClsCheckoutList extends AppCompatActivity {
         studentSpinnerAdapter = new ArrayAdapter<dbStudentHelper>(this, android.R.layout.simple_list_item_1, students);
         spinnerStudent.setAdapter(studentSpinnerAdapter);
 
-        books = dbBookHelper.getAllBook();
+        books = dbBookHelper.getAllBookName();
         bookSpinnerAdapter = new ArrayAdapter<dbBookHelper>(this, android.R.layout.simple_list_item_1, books);
         spinnerBook.setAdapter(bookSpinnerAdapter);
 
@@ -116,10 +118,22 @@ public class ClsCheckoutList extends AppCompatActivity {
 
                 _duedate = editTextDuedate.getText().toString();
 
-                dbCheckoutHelper _checkout = new dbCheckoutHelper(_studentId, _bookid, _duedate);
-                _checkout.save();
-                clsCheckoutupdateList();
-                clsCheckoutclearForm();
+                if(_duedate.equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Please Enter Due Date", Toast.LENGTH_LONG).show();
+                }
+                else if (dbBookHelper.getCheckoutBookId(_bookid) == 0)
+                {
+                    Toast.makeText(getApplicationContext(), "All Book Checkout", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    dbCheckoutHelper _checkout = new dbCheckoutHelper(_studentId, _bookid, CollegeLibrarySystem.getTodayIssueDate(),_duedate);
+                    _checkout.save();
+                    dbBookHelper.decrementBookbyId(_bookid);
+                    Toast.makeText(getApplicationContext(), dbBookHelper.getCheckoutBookId(_bookid) + " Book Remain", Toast.LENGTH_LONG).show();
+                    clsCheckoutupdateList();
+                    clsCheckoutclearForm();
+                }
             }
         });
 

@@ -11,26 +11,25 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-/**
- * Created by molly on 11/21/17.
- */
+
 
 public class BookCheckoutAdapter extends BaseAdapter {
     ArrayList<BookCheckout> bookCheckOut = new ArrayList<>();
 
-    void addCheckoutBook(int cCheckoutId, String cBookName, String cDuedate)
+    void addCheckoutBook(int cCheckoutId, String cBookName, String cIssuedate, String cDuedate)
     {
-        BookCheckout bookcheckout = new BookCheckout(cCheckoutId, cBookName, cDuedate);
+        BookCheckout bookcheckout = new BookCheckout(cCheckoutId, cBookName, cIssuedate, cDuedate);
         bookCheckOut.add(bookcheckout);
     }
 
     public String getCheckoutBookName(int i){return  bookCheckOut.get(i).getBoookName();}
+    public String getCheckoutIssuedate(int i){return  bookCheckOut.get(i).getIssuedate();}
     public String getCheckoutDuedate(int i){return  bookCheckOut.get(i).getDuedate();}
     public int getCheckoutId(int i){return  bookCheckOut.get(i).getCheckoutId();}
 
-    void updateBookCheckout(int i, int cCheckoutId, String cBookName, String cDuedate)
+    void updateBookCheckout(int i, int cCheckoutId, String cBookName, String cIssuedate, String cDuedate)
     {
-        BookCheckout checkoutBook = new BookCheckout(cCheckoutId, cBookName, cDuedate);
+        BookCheckout checkoutBook = new BookCheckout(cCheckoutId, cBookName, cIssuedate, cDuedate);
         bookCheckOut.set(i, checkoutBook);
     }
 
@@ -63,11 +62,13 @@ public class BookCheckoutAdapter extends BaseAdapter {
             LayoutInflater inflater = LayoutInflater.from(viewGroup.getContext());
             RelativeLayout layout = (RelativeLayout) inflater.inflate(R.layout.activity_student_book_check_out,  null, false);
 
-            TextView bookName = (TextView) layout.findViewById(R.id.textstudentbookcheckout);
-            TextView duedate = (TextView) layout.findViewById(R.id.textstudentduedatecheckout);
+            TextView txtbookName = (TextView) layout.findViewById(R.id.textstudentbookcheckout);
+            TextView txtissuedate = (TextView) layout.findViewById(R.id.textstudentduedateIssuedate);
+            TextView txtduedate = (TextView) layout.findViewById(R.id.textstudentduedatecheckout);
 
-            bookName.setText(bookCheckOut.get(i).getBoookName());
-            duedate.setText(bookCheckOut.get(i).getDuedate());
+            txtbookName.setText(bookCheckOut.get(i).getBoookName());
+            txtissuedate.setText(bookCheckOut.get(i).getIssuedate());
+            txtduedate.setText(bookCheckOut.get(i).getDuedate());
 
             return layout;
         }

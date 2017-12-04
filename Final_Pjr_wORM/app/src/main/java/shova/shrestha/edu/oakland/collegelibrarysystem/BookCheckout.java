@@ -1,9 +1,5 @@
 package shova.shrestha.edu.oakland.collegelibrarysystem;
 
-/**
- * Created by molly on 11/21/17.
- */
-
 public class BookCheckout {
     public String getBoookName() {
         return bookname;
@@ -11,6 +7,14 @@ public class BookCheckout {
 
     public void setBookName(String _bookname) {
         this.bookname = _bookname;
+    }
+
+    public String getIssuedate() {
+        return issuedate;
+    }
+
+    public void setIssuedate(String issuedate) {
+        this.duedate = issuedate;
     }
 
     public String getDuedate() {
@@ -30,11 +34,13 @@ public class BookCheckout {
     }
 
     private String bookname = null;
+    private String issuedate = null;
     private String duedate = null;
     private int ckoutid = 0;
 
-    public BookCheckout(int ckoutid, String bookname, String duedate) {
+    public BookCheckout(int ckoutid, String bookname, String issuedate, String duedate) {
         this.bookname = bookname;
+        this.issuedate = issuedate;
         this.duedate = duedate;
         this.ckoutid = ckoutid;
     }

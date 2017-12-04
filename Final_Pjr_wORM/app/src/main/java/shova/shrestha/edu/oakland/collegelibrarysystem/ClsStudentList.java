@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.activeandroid.query.Update;
 
@@ -68,12 +69,17 @@ public class ClsStudentList extends AppCompatActivity {
 
                 String _studentname = editTextStdName.getText().toString();
                 String _studentPhonenumber = editTextStdPhoneNumb.getText().toString();
-
-                dbStudentHelper student = new dbStudentHelper(_studentname, _studentPhonenumber);
-                student.save();
-                clsStudentupdateList();
-                clsStudentclearForm();
-
+                if( _studentname.equals("") || _studentPhonenumber.equals(""))
+                {
+                    Toast.makeText(getApplicationContext(), "Please Enter Student Name or Phone Name", Toast.LENGTH_LONG).show();
+                }
+                else
+                {
+                    dbStudentHelper student = new dbStudentHelper(_studentname, _studentPhonenumber);
+                    student.save();
+                    clsStudentupdateList();
+                    clsStudentclearForm();
+                }
             }
         });
 

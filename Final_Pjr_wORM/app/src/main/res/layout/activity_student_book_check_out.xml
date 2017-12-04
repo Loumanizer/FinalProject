@@ -49,7 +49,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/textstudentduedatecheckout"
+        android:id="@+id/textstudentduedateIssuedate"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textstudentbookcheckout"
@@ -57,7 +57,7 @@
         android:layout_toLeftOf="@+id/btnstudentsendSms"
         android:layout_toRightOf="@+id/textView9"
         android:layout_toStartOf="@+id/btnstudentsendSms"
-        android:text="Duedate" />
+        android:text="IssueDate" />
 
     <TextView
         android:id="@+id/textView9"
@@ -66,7 +66,7 @@
         android:layout_alignLeft="@+id/textstudentbookcheckout"
         android:layout_alignStart="@+id/textstudentbookcheckout"
         android:layout_below="@+id/textstudentbookcheckout"
-        android:text="DueDate: " />
+        android:text="IssueDate: " />
 
     <Button
         android:id="@+id/btnstudentsendChkIn"
@@ -77,5 +77,23 @@
         android:layout_toStartOf="@+id/btnstudentsendSms"
         android:onClick="btnStudentCheckInBook"
         android:text="Check In" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView9"
+        android:layout_alignStart="@+id/textView9"
+        android:layout_below="@+id/textView9"
+        android:text="DueDate:" />
+
+    <TextView
+        android:id="@+id/textstudentduedatecheckout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textstudentduedateIssuedate"
+        android:layout_toEndOf="@+id/textView9"
+        android:layout_toRightOf="@+id/textView9"
+        android:text="DueDate" />
 
 </RelativeLayout>

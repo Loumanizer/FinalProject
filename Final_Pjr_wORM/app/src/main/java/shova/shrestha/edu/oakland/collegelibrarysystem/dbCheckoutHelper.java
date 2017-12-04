@@ -22,15 +22,19 @@ public class dbCheckoutHelper extends Model {
     @Column(name = "book_id")
     public int bookId;
 
+    @Column(name = "IssueDate")
+    public String issueDate;
+
     @Column(name = "DueDate")
     public String dueDate;
 
 
     public dbCheckoutHelper(){super();}
-    public dbCheckoutHelper(int _studentId, int _bookId, String _dueDate ) {
+    public dbCheckoutHelper(int _studentId, int _bookId, String _issueDate, String _dueDate ) {
         super();
         this.studentId = _studentId;
         this.bookId = _bookId;
+        this.issueDate = _issueDate;
         this.dueDate = _dueDate;
     }
 
@@ -40,7 +44,7 @@ public class dbCheckoutHelper extends Model {
         String _stdname = dbStudentHelper.getStudentName(studentId);
         String _bookname = dbBookHelper.getBookName(bookId);
         //return  ret;
-        return getId() + ": Name: " + _stdname + "\n" + "Book: " + _bookname + "\n"  + "Due: " + dueDate;
+        return getId() + ": Name: " + _stdname + "\n" + "Book: " + _bookname + "\n"  + "Issue Date: " + issueDate + "\n" + "Due: " + dueDate;
     };
 
     public static List<dbCheckoutHelper> getAllCheckout(){
@@ -71,6 +75,15 @@ public class dbCheckoutHelper extends Model {
                 .where("id = ?", _id)
                 .executeSingle();
         return bookId.bookId;
+    }
+
+    public static String getIssuedate(int _id)
+    {
+        Select CheckoutQuery = new Select ();
+        dbCheckoutHelper studentid = CheckoutQuery.from(dbCheckoutHelper.class)
+                .where("id = ?", _id)
+                .executeSingle();
+        return studentid.issueDate;
     }
 
     public static String getDuedate(int _id)
