@@ -33,7 +33,7 @@ public class dbBookHelper extends Model {
     @Override
     public String toString() {
         if (bookflag == 1) {
-            return getId() + ": " + bookName + "\n Tot Book : " + totalBookNum + ": Rem Book : " + checkoutBookNum;
+            return getId() + ": " + bookName + "\n Tot Book : " + totalBookNum + "   Rem Book : " + checkoutBookNum;
         }
         else
         {
